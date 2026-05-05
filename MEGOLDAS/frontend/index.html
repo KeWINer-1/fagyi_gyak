@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="hu">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HEAD
+═══════════════════════════════════════════════════════════════ -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Álom-Édes Fagyizó</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <!-- ── NAVIGÁCIÓ ──────────────────────────────────────────────────────── -->
+    <header class="border-bottom bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#fooldal">Álom-Édes Fagyizó</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#foMenu" aria-controls="foMenu" aria-expanded="false" aria-label="Menü">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-lg-flex flex-grow-0 ms-auto" id="foMenu">
+                    <!-- Asztali menü -->
+                    <div class="d-none d-lg-flex gap-2">
+                        <a class="btn btn-outline-info" href="#fooldal">Főoldal</a>
+                        <a class="btn btn-outline-info" href="#lekerdezes">Lekérdezés</a>
+                        <a class="btn btn-outline-info" href="#statisztika">Statisztika</a>
+                        <a class="btn btn-info text-white" href="add-fagyi.html">Új fagyi</a>
+                    </div>
+                    <!-- Mobil menü -->
+                    <div class="d-lg-none pt-3 d-grid gap-2">
+                        <a class="btn btn-outline-info" href="#fooldal">Főoldal</a>
+                        <a class="btn btn-outline-info" href="#lekerdezes">Lekérdezés</a>
+                        <a class="btn btn-outline-info" href="#statisztika">Statisztika</a>
+                        <a class="btn btn-info text-white" href="add-fagyi.html">Új fagyi</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ── FŐOLDAL SZEKCIÓ ────────────────────────────────────────────── -->
+        <section id="fooldal" class="hos-szekcio position-relative min-vh-100">
+            <div class="hos-hatter"></div>
+            <div class="hos-reteg"></div>
+            <div class="hos-tartalom container text-center text-white">
+                <h1 class="display-4 fw-bold">Fagyizó Nyilvántartó Rendszer</h1>
+                <p class="lead mb-4">Fagylaltok lekérdezése, kezelése és statisztikái modern webes környezetben</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                    <a href="#lekerdezes" class="btn btn-info btn-lg text-white px-4">Fagyik megtekintése</a>
+                    <a href="add-fagyi.html" class="btn btn-outline-light btn-lg px-4">Új fagyi hozzáadása</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── LEKÉRDEZÉS SZEKCIÓ ─────────────────────────────────────────── -->
+        <section id="lekerdezes" class="min-vh-100 py-5 bg-white szekcio-eltolas">
+            <div class="container">
+
+                <!-- Cím -->
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold">Lekérdezés</h2>
+                    <p class="text-muted">Keresés, szűrés és műveletek a fagyik között</p>
+                </div>
+
+                <!-- Szűrők -->
+                <div class="row justify-content-center g-3 mb-4">
+                    <div class="col-12 col-lg-4">
+                        <label for="fagyiNevKereso" class="form-label fw-semibold">Keresés név alapján</label>
+                        <input id="fagyiNevKereso" class="form-control form-control-lg" type="text"
+                            placeholder="Példa: Csokoládé, Eper, Vanília">
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <label for="tipusSzuro" class="form-label fw-semibold">Típus</label>
+                        <select id="tipusSzuro" class="form-select form-select-lg">
+                            <option value="">Összes</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <label for="elerhetosegSzuro" class="form-label fw-semibold">Elérhetőség</label>
+                        <select id="elerhetosegSzuro" class="form-select form-select-lg">
+                            <option value="">Mindegy</option>
+                            <option value="elerheto">Elérhető</option>
+                            <option value="nemelerheto">Nem elérhető</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <label for="rendezesValaszto" class="form-label fw-semibold">Rendezés</label>
+                        <select id="rendezesValaszto" class="form-select form-select-lg">
+                            <option value="">Alapértelmezett</option>
+                            <option value="nevnovekvo">Név szerint (A-Z)</option>
+                            <option value="nevcsokkeno">Név szerint (Z-A)</option>
+                            <option value="arnovekvo">Ár szerint növekvő</option>
+                            <option value="arcsokkeno">Ár szerint csökkenő</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Gombok -->
+                <div class="text-center mb-5 d-flex flex-column flex-sm-row justify-content-center gap-3">
+                    <button id="fagyiLekerdezoGomb" class="btn btn-info btn-lg text-white px-5" type="button">
+                        Fagyik lekérdezése
+                    </button>
+                    <a href="add-fagyi.html" class="btn btn-outline-secondary btn-lg px-5">
+                        Új fagyi hozzáadása
+                    </a>
+                </div>
+
+                <!-- Eredmények -->
+                <div id="fagyiMuveletUzenet" class="text-center text-muted mb-4"></div>
+                <div id="fagyiKartyaTarolo" class="row g-4 justify-content-center"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+    <footer class="bg-white border-top py-3">
+        <div class="container text-center">
+            <small class="text-muted">
+                © 2026 Álom-Édes Fagylalt - Admin felület
+            </small>
+        </div>
+    </footer>
+
+    <!-- ── SZERKESZTÉS MODAL ──────────────────────────────────────────────── -->
+    <div class="modal fade" id="szerkesztesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Fagylalt szerkesztése</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="szerkesztesUrlap">
+                    <div class="modal-body">
+                        <input type="hidden" id="szerkesztesId">
+                        <div class="mb-3">
+                            <label class="form-label">Név</label>
+                            <input type="text" id="szerkesztesNev" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Típus</label>
+                            <select id="szerkestesTipus" class="form-select"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Ár (Ft)</label>
+                            <input type="number" id="szerkesztesAr" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Leírás</label>
+                            <textarea id="szerkesztesLeiras" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Elérhetőség</label>
+                            <select id="szerkesztesElerheto" class="form-select">
+                                <option value="igen">Elérhető</option>
+                                <option value="nem">Nem elérhető</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                        <button type="submit" class="btn btn-primary">Mentés</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── TÖRLÉS MODAL ───────────────────────────────────────────────────── -->
+    <div class="modal fade" id="torlesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Törlés megerősítése</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Biztosan törlöd: <strong id="torlesNev"></strong>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                    <button type="button" id="torlesMegerosites" class="btn btn-danger">Törlés</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── VISSZAJELZÉS MODAL ─────────────────────────────────────────────── -->
+    <div class="modal fade" id="visszajelzesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visszajelzesCim"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="visszajelzesUzenet" class="mb-0 fw-semibold text-center"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── SCRIPTEK ───────────────────────────────────────────────────────── -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
